@@ -1,0 +1,15 @@
+<li [ngClass]="{'list-group-item': true,
+'list-group-item-success': apparielStatus === 'allumer',
+'list-group-item-danger': apparielStatus === 'éteint'}">
+
+
+  <h4 [ngStyle]="{color: getColor()}"> Appareil : {{ apparielName}} -- Statut : {{getStatus()}}</h4>
+  <button class="btn btn-success"
+          (click)="onSwitchON()"
+          [disabled]="apparielStatus === 'allumer'"> Allumer </button>
+  <button class="btn btn-danger"
+          (click)="onSwitchOFF()"
+          [disabled]="apparielStatus === 'éteint' ">Etiendre</button>
+
+
+</li>

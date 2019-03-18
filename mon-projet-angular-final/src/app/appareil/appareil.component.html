@@ -1,0 +1,22 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': appareilStatus === 'allumer',
+                'list-group-item-danger': appareilStatus === 'éteint'}">
+
+  <h4 [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} --- Status : {{ getStatus() }}</h4>
+ <button type="button" class="btn btn-danger" *ngIf="appareilStatus === 'éteint'"
+          (click)="onSwitch()">Allumer
+  </button>
+  <button class="btn btn-danger"
+          *ngIf="appareilStatus === 'allumer'"
+          (click)="onSwitch()">Eteindre
+  </button>
+  <ul class="list-group">
+    <app-appareil  *ngFor="let appareil of appareils ; let index = index"
+                   [appareilName]="appareil.name"
+                   [appareilStatus]="appareil.status"
+                   [index]="index"></app-appareil>
+  </ul>
+
+
+
+</li>
